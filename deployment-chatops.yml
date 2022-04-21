@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-chatops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: go-chatops
+  template:
+    metadata:
+      labels:
+        name: go-chatops
+    spec:
+      containers:
+      - name: chatops
+        image: chatops:1.2.6
+        command: [ "/bin/sh", "-c", "/opt/webhook" ]
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 8081
+        volumeMounts:
+          - name: go-chatops-config
+            mountPath: /opt/config/
+      volumes:
+        - name: go-chatops-config
+          configMap:
+            name: go-chatops-configmap

@@ -1,0 +1,9 @@
+{
+     "Port": "8081",
+     "Token": "Bearer xoxb-2276656513266-xxxxxxxxxxxxx",
+     "SlackURL": "https://slack.com/api/chat.postMessage",
+     "Name": "Bot",
+     "ChannelID": [
+        "C028ARC53HA"
+      ]
+}
